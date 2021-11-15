@@ -12,11 +12,17 @@ public struct FPNCountry: Equatable {
 		self.phoneCode = phoneCode
 		self.code = FPNCountryCode(rawValue: code)!
 
-		if let flag = UIImage(named: code, in: Bundle.FlagIcons, compatibleWith: nil) {
+// 		TODO: Hotfix while waiting for better solution
+		if let flag = UIImage(named: code) {
 			self.flag = flag
 		} else {
-			self.flag = UIImage(named: "unknown", in: Bundle.FlagIcons, compatibleWith: nil)
+			self.flag = UIImage(named: "unknown")
 		}
+// 		if let flag = UIImage(named: code, in: Bundle.FlagIcons, compatibleWith: nil) {
+// 			self.flag = flag
+// 		} else {
+// 			self.flag = UIImage(named: "unknown", in: Bundle.FlagIcons, compatibleWith: nil)
+// 		}
 	}
 
 	static public func ==(lhs: FPNCountry, rhs: FPNCountry) -> Bool {
